@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>合同提取 SaaS</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>📄 合同数据提取</h1>
+    <p class="subtitle">上传租赁合同 PDF，自动提取面积、租金等关键信息</p>
+  </header>
+
+  <section class="card upload-section">
+    <div class="upload-zone" id="uploadZone">
+      <div class="upload-icon">⬆</div>
+      <p class="upload-text">拖拽 PDF 文件到此处，或点击选择文件</p>
+      <p class="upload-hint">支持 .pdf 格式，最大 50MB</p>
+      <input type="file" id="fileInput" accept=".pdf" hidden>
+    </div>
+    <div class="api-key-row">
+      <input type="text" id="apiKeyInput" placeholder="输入 API Key（测试用: dev-key-123）" class="input-key">
+    </div>
+  </section>
+
+  <section class="card status-section" id="statusSection" hidden>
+    <div class="status-bar">
+      <span class="status-indicator" id="statusIndicator"></span>
+      <span id="statusText">处理中...</span>
+    </div>
+    <div class="progress-bar" id="progressBar"><div class="progress-fill"></div></div>
+  </section>
+
+  <section class="card result-section" id="resultSection" hidden>
+    <div class="result-header">
+      <h2>提取结果</h2>
+      <div class="result-actions">
+        <button class="btn btn-sm" id="downloadCsvBtn">下载 CSV</button>
+        <button class="btn btn-sm" id="downloadJsonBtn">下载 JSON</button>
+      </div>
+    </div>
+    <div class="result-table-wrap" id="resultTable"></div>
+  </section>
+
+  <section class="card error-section" id="errorSection" hidden>
+    <div class="error-box">
+      <strong>❌ 处理失败</strong>
+      <p id="errorText"></p>
+    </div>
+  </section>
+
+  <footer>
+    <p class="footer-text">ContractSaaS v0.1.0 · 免费试用 3 次</p>
+  </footer>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>
